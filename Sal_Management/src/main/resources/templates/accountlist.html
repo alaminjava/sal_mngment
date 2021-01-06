@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="d-flex justify-content-center">
+<a href="/home/addacc" class="btn btn-primary"> <i class="fas fa-user-plus ml-2"> Add New Bank Account</i></a>
+
+<a href="/home/paysalary" class="btn btn-primary"> <i class="fas fa-user-plus ml-2"> Give Salary</i></a>
+
+<a href="/home/" class="btn btn-primary"> <i class="fas fa-user-plus ml-2">All Employee</i></a>
+
+</div>
+
+<h1>All Bank Account</h1>
+<div>
+    <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Account No.</th>
+            <th>Account Type</th>
+            <th>Account Name</th>
+            <th>Current Balance</th>
+            <th>Brunch Name</th>
+            <!-- <th>Edit</th>
+            <th>Delete</th> -->
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="emp : ${bankacc}">
+            <td th:text="${emp.id}"></td>
+            <td th:text="${emp.bankaccno}"></td>
+            <td th:text="${emp.accounttype}"></td>
+            <td th:text="${emp.accountname}"></td>
+            <td th:text="${emp.currentbalance}"></td>
+            <td th:text="${emp.brunchname}"></td>
+            <td><a th:href="@{/home/editbank/{id}(id=${emp.id})}" class="btn btn-primary"><i class="fas fa-user-edit">Add Money To Bank</i></a></td>
+           <!--  <td><a th:href="@{/home/delete/{id}(id=${emp.id})}" class="btn btn-danger"><i class="fas fa-trash"></i></a></td> -->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
